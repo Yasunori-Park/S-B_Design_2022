@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/grid.css">
+<link rel="stylesheet" type="text/css" href="css/Roko_Pure_CSS_Slideshow.css">
+
+<script src="https://kit.fontawesome.com/d04e909778.js" crossorigin="anonymous"></script>
+
+
+<!--display bar only if file is chosen-->
+<script>
+    
+    $(document).ready(function() {
+                      //
+                      
+                      //show the progress bar only if a file field was clicked
+                      var show_bar = 0;
+                      $('input[type="file"]').click(function(){
+                                                    show_bar = 1;
+                                                    });
+                      
+                      //show iframe on form submit
+                      $("#form1").submit(function(){
+                                         
+                                         if (show_bar === 1) { 
+                                         $('#upload_frame').show();
+                                         function set () {
+                                         $('#upload_frame').attr('src','upload_frame.php?up_id=<?php echo $up_id; ?>');
+                                         }
+                                         setTimeout(set);
+                                         }
+                                         });
+                      //
+                      
+                      });
+                      
+</script>
+
+
+<title>
+Seek & Blastn
+</title>
+
+</head>
+
+<body>
+	<header>
+	</header>
+		<nav>
+			<div class = "SB_Navigation">
+				<ul>
+					<li><a class = "External" href = "https://dbrech.irit.fr/pls/apex/f?p=9999:1::::::">Problematic Paper Screener</a></li>
+					<li><a class = "External" href = "https://www.protocols.io/view/seek-amp-blastn-standard-operating-procedure-bjhpkj5n">Protocol</a></li>
+					<li><a class = "section_id" href="#Contact">Contact</a></li>
+					<li><a class = "section_id" href="#Publications">Publications</a></li>
+					<li><a class = "section_id" href="#Understanding_S&B_Results">Understanding S&B results</a></li>
+					<li><a class = "Home" href="SB_Draft_1.html"><img src="image/SB_Logo_1.png" height=30></a></li>
+				</ul>
+			</div>
+		</nav>
+	
+		
+	<div class = "wrap_for_scroll">
+		<div class = "wrap">
+			<section class="Main">
+				<h1 class="SeekBlastnTitle">Seek & Blastn</h1>
+				<div class="split_left"></div>
+				<div class="split_right"></div> 
+				
+				<div class = "row">
+					<div class="col span-1-of-2 box">
+						<p class="Quick_Instruction">1) Choose a pdf file to seek nucleotide sequences in via the </br> "Choose a file..." button.</p>
+								<!--Make text larger-->
+					</div>
+					<div class="col span-1-of-2 box">
+						<p class="Quick_Instruction">2) Then check nucleotide sequence </br>identities by pressing the </br>"Search for sequences" button</p>
+								<!--Make text larger-->
+					</div>	
+				</div>
+					
+			   <form action="php/upload_action.php" method="post" enctype="multipart/form-data" name="form1" id="form1" class="form">
+							<!--APC hidden field-->
+							
+					<input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="<?php echo $up_id; ?>"/>
+							
+							<!---->
+							
+					<div class="shift_input_file">
+						<input type="file" name="userfile" id="file" class="SB_Input_File" data-multiple-caption="{count} files selected" multiple />
+						<label for="file" onclick = "click_function()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file . . . </span></label>
+									<!--Reduce dependenacy by replacing icon with src img-->
+					</div>
+							<!--Include the iframe-->
+							
+					<iframe id="upload_frame" name="upload_frame" frameborder="0" border="0" src="" scrolling="no" scrollbar="no" > </iframe>	
+							<!---->
+							
+					<div class="shift_input_submit" >
+						<input class = "SB_Input_Submit" name="Submit" type="submit" id="submit" />
+						<label for="submit"><span>Search for sequences</span></label>
+					</div>
+							
+				</form>
+				
+				<h3 class = "Main_h3">For a guide on how to use Seek & Blastn, consider going through the <a class = "color_hyperlink" href = "https://www.protocols.io/view/seek-amp-blastn-standard-operating-procedure-bjhpkj5n.pdf">protocol</a></h3>
+			</section>
+		  
+
+			<section id = "Understanding_S&B_Results" class="Understanding_SB_Results">
+				<div class="CSSgal">
+				  <s id="s1"></s> 
+				  <s id="s2"></s>
+				  <s id="s3"></s>
+				  <s id="s4"></s>
+				  <s id="s5"></s>
+				  <s id="s6"></s>
+				  <s id="s7"></s>
+				  <s id="s8"></s>
+				  <div class="slider">
+					<div style="background:#f13535;">
+							<img src="image/Slide1.jpg"></img>
+					</div>
+					<div style="background:#f13535;">
+							<img src="image/Slide2.jpg"></img>
+					</div>
+					<div style="background:#f13535;">
+							<a href="https://link.springer.com/article/10.1007/s11192-016-2209-6"><img src="image/Slide3.jpg"></img></a>
+					</div>
+					<div style="background:#f13535;">
+						<img src="image/Slide4.jpg"></img>
+					</div>
+					<div style="background:#f13535;">
+						<a href="https://iclac.org/databases/cross-contaminations/"><img src="image/Slide5.jpg"></img></a>
+					</div>
+					<div style="background:#f13535;">
+						<img src="image/Slide6.jpg"></img>
+					</div>
+					<div style="background:#f13535;">
+						<img src="image/Slide7.jpg"></img>
+					</div>
+					<div style="background:#f13535;">
+						<a href="https://www.protocols.io/view/seek-amp-blastn-standard-operating-procedure-bjhpkj5n"><img src="image/Slide8.jpg"></img></a>
+					</div>
+				  </div>				 
+				  <div class="prevNext">
+					<div><a href="#s8"></a><a href="#s2"></a></div>
+					<div><a href="#s1"></a><a href="#s3"></a></div>
+					<div><a href="#s2"></a><a href="#s4"></a></div>
+					<div><a href="#s3"></a><a href="#s5"></a></div>
+					<div><a href="#s4"></a><a href="#s6"></a></div>
+					<div><a href="#s5"></a><a href="#s7"></a></div>
+					<div><a href="#s6"></a><a href="#s8"></a></div>
+					<div><a href="#s7"></a><a href="#s1"></a></div>
+				  </div>
+				  <div class="bullets">
+					<a href="#s1">1</a>
+					<a href="#s2">2</a>
+					<a href="#s3">3</a>
+					<a href="#s4">4</a>
+					<a href="#s5">5</a>
+					<a href="#s6">6</a>
+					<a href="#s7">7</a>
+					<a href="#s8">8</a>
+				  </div>
+				</div>
+			</section>
+			
+			<section id = "Publications" class="Publications">
+				<h1 class="Publications_Title">Publications</h1>
+				<p class="SB_Notice">The problematic papers flagged by Seek & Blastn and reported in the following articles are tabulated at the 
+					<a href="https://www.irit.fr/~Guillaume.Cabanac/problematic-paper-screener/seekandblastn/">PPP</a>:</p>
+				
+					<a href="https://doi.org/10.26508/lsa.202101203" class="doi_link">
+						<div class="hover_article_link">
+							Identification of human gene research articles with wrongly identified nucleotide sequences.
+							<p><br>Park, Y., West, R.A., Pathmendra, P., Favier, B., Stoeger, T., Capes-Davis, A., Cabanac, G., Labbé, C., Byrne, J.A. (2022) <br>Life Science Alliance. https://doi.org/10.26508/lsa.202101203, 5(4), e202101203.</p>
+						</div>
+					</a>
+					<a href="https://doi.org/10.1007/s11192-021-03871-9" class="doi_link">
+						<div class="hover_article_link">
+							The thin ret(raction) line: biomedical journal responses to incorrect non-targeting nucleotide sequence reagents in human gene knockdown publications.
+							<p><br>Byrne, J.A., Park, Y., West, R.A., Capes-Davis, A., Favier, B., Cabanac, G., Labbé, C. (2021) <br>Scientometrics. https://doi.org/10.1007/s11192-021-03871-9, 126(4), 3513–3534.</p>
+						</div>
+					</a>
+					<a href="https://doi.org/10.1007/s11192-020-03463-z" class="doi_link">
+						<div class="hover_article_link">
+							Flagging incorrect nucleotide sequence reagents in biomedical papers: To what extent does the leading publication format impede automatic error detection?
+							<p><br>Labbé, C., Cabanac, G., West, R.A., Gauthier, T., Favier, B., Byrne, J.A. (2020) <br>Scientometrics. https://doi.org/10.1007/s11192-020-03463-z, 124(2), 1139–1156.</p>
+						</div>
+					</a>
+					<a href="https://doi.org/10.1371/journal.pone.0213266" class="doi_link">
+						<div class="hover_article_link">
+							Semi-automated fact-checking of nucleotide sequence reagents in biomedical research publications: The Seek & Blastn tool.
+							<p><br>Labbé, C., Grima, N., Gauthier, T., Favier, B., Byrne, J.A. (2019) <br>PLoS ONE. https://doi.org/10.1371/journal.pone.0213266, 14(3), e0213266.</p>
+						</div>
+					</a>
+					<a href="https://doi.org/10.1007/s11192-016-2209-6" class="doi_link">
+						<div class="hover_article_link">
+							Striking similarities between publications from China describing single gene knockdown experiments in human cancer cell lines.
+							<p><br>Byrne, J.A., Labbé, C. (2017) <br>Scientometrics. https://doi.org/10.1007/s11192-016-2209-6, 110(3), 1471–1493.</p>
+						</div>
+					</a>
+				<p class="SB_Notice"><br>Talks</p>
+				<a href="http://peerreviewcongress.org/prc17-0177" class="doi_link">
+						<div class="hover_talk_link">
+							Fact Checking Nucleotide Sequences in Life Science Publications: The Seek &amp; Blastn Tool.
+							<p><br>Byrne, J.A., Labbé, C. (2017) Peer Review Congress 2017.
+							<br><br><a href="../0-Seek-169.pdf">Click here for slides</a></p>
+						</div>
+					</a>
+			</section>
+			
+			
+			<section id = "Contact" class="Contact">
+				<h1 class="Contact_Title">Contact</h1>
+					<div class="card-container">
+						<div class="card">
+							<img class = "Card_Image" src="image/Cyril_Labbe.jpg"></img>
+								<h3 class = "Card_Names">Cyril Labbé</h3>
+									<div class = "Card_Icons_One">
+										<a class="Contact_a" href="mailto:cyril.labbe@imag.fr"><i class="fab fa-solid fa-envelope" aria-hidden="true"></i></a>
+									</div>
+						</div>
+						<div class="card">							
+							<img class = "Card_Image" src="image/Jennifer_Byrne.jpg"></img>
+								<h3 class = "Card_Names">Jennifer Byrne</h3>
+									<div class = "Card_Icons">
+										<a class="Contact_a" href="mailto:jennifer.byrne@health.nsw.gov.au"><i class="fab fa-solid fa-envelope" aria-hidden="true"></i></a>
+										<a class="Contact_a" href="https://twitter.com/JAByrneSci"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+										<a class="Contact_a" href="https://orcid.org/0000-0002-8923-0587"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+									</div>
+						</div>
+						<div class="card">
+							<img class = "Card_Image" src="image/Guillaume_Cabanac.jpg"></img>
+								<h3 class = "Card_Names">Guillaume Cabanc</h3>
+									<div class = "Card_Icons">
+										<a class="Contact_a" href="mailto:guillaume.cabanac@univ-tlse3.fr"><i class="fab fa-solid fa-envelope" aria-hidden="true"></i></a>
+										<a class="Contact_a" href="https://twitter.com/gcabanac"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+										<a class="Contact_a" href="https://orcid.org/0000-0003-3060-6241"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+									</div>
+						</div>
+						<div class="card">
+							<img class = "Card_Image" src="image/Bertrand_Favier_2.jpg"></img>
+								<h3 class = "Card_Names">Bertrand Favier</h3>
+									<div class = "Card_Icons_Two">
+										<a class="Contact_a" href="mailto:bertrand.favier@univ-grenoble-alpes.fr"><i class="fab fa-solid fa-envelope" aria-hidden="true"></i></a>
+										<a class="Contact_a" href="https://orcid.org/0000-0002-8356-0219"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+									</div>
+						</div>
+						<div class="card">
+							<img class = "Card_Image" src="image/Amanda_Capes-Davis.jpg"></img>
+								<h3 class = "Card_Names">Amanda Capes-Davis</h3>
+									<div class = "Card_Icons">
+										<a class="Contact_a" href="mailto:ACapes-Davis@cmri.org.au"><i class="fab fa-solid fa-envelope" aria-hidden="true"></i></a>
+										<a class="Contact_a" href="https://twitter.com/Cell_Detective"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+										<a class="Contact_a" href="https://orcid.org/0000-0003-4184-6339"><i class="fab fa-orcid" aria-hidden="true"></i></a>
+									</div>
+						</div>
+					</div>
+			</section>
+			<section id = "Grenoble_Affiliation" class="Grenoble_Affiliation">
+				<div class = "Logo_Row">
+					<a href = "https://www.univ-grenoble-alpes.fr/"><img class = "Grenoble_Logo" src="image/University_Grenoble_Alpes_2020_Logo.jpg"></img></a>
+					<a href="https://www.liglab.fr/"><img class = "LIG_Logo" src="image/LIG_Lab_logo.png"></img></a>
+					<a href="https://sigma.imag.fr/"><img class = "SIGMA_Logo" src="image/SIGMA_Lab_Logo.jpg"></img></a>
+				</div>
+			</section>
+		</div>
+	</div>
+	
+<script src="file:///C:/Users/yasun/Desktop/XHTML_and_CSS/SB_project/js/custom-file-input.js"></script>
+</body>
+
+<!--Labbe images include University Grenoble Alpes, LIG lab, SIGMA lab-->
+</html>
+
