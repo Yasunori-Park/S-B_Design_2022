@@ -1,0 +1,486 @@
+/*********Housekeeping*********/
+	html, body {
+		margin: 0;
+		width:100%;
+		padding:0;
+	}
+	.wrap {
+	  display: flex;
+	  flex-direction: column;
+	}
+	section {
+		padding: 10px 0px;
+		box-sizing:border-box;
+	}
+	html {
+		color: rgb(69, 69, 69);
+		font-size: 25px;
+		scroll-behavior: smooth;
+	}
+	nav {
+        position: sticky;
+		z-index: 2;
+        top: 0;
+      }
+	  
+/*Palette: white, #f13535, #243447, #141d26*/
+
+/*iframe (from original S&B page)*/
+	#upload_frame {
+		border:0px;
+		height:40px;
+		width:400px;
+		display:none;
+	}
+	#progress_container {
+		width: 300px; 
+		height: 30px; 
+		border: 1px solid #CCCCCC; 
+		background-color:#EBEBEB;
+		display: block; 
+		margin:5px 0px -15px 0px;
+	}
+	#progress_bar {
+		position: relative; 
+		height: 30px; 
+		background-color: #F3631C; 
+		width: 0%; 
+		z-index:10; 
+	}
+	#progress_completed {
+		font-size:16px; 
+		z-index:40; 
+		line-height:30px; 
+		padding-left:4px; 
+		color:#FFFFFF;
+	}
+
+ /*********Navigation_Bar*********/
+
+	.SB_Navigation{
+		background-color: white;
+		overflow: hidden;
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+		opacity: 0.85;
+		}
+	.SB_Navigation ul li a {
+		float:right;
+		font-family: arial;
+		color: black;
+		text-decoration: none;
+		position: relative;
+		padding: 13px 10px;
+		font-size: 20px;
+		display: block;
+		margin-left: 10px;
+	}
+	.SB_Navigation ul li a.section_id::after {
+		content: '';
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+		width: 100%;
+		height: 4px;
+		background-color: #778f9b;
+		transform-origin: bottom right;
+		transition: transform 0.4s ease;
+		transform: scaleX(0);
+	}
+	.SB_Navigation ul a.section_id:hover::after {
+		transform-origin: left;
+		transform: scaleX(1);
+		color: #E73213;
+	}
+	.SB_Navigation a.Home{
+		position: absolute;
+		left: 0px;
+		top: 5px;
+		width: 10px;
+		padding: 4px;
+	}
+	.SB_Navigation a.External{
+		font-weight:bold;
+	}
+	.SB_Navigation a.External:hover{
+		background-color:#778f9b;
+		color: white;
+		opacity: 0.8;
+	}
+
+	
+/*********Titles*********/
+
+	.SeekBlastnTitle{
+		font-size: 300%;
+		text-align:center;
+		padding-bottom: 38px;
+		padding-left: 50px;
+		font-family: Franklin Gothic Medium;
+		color: #f13535;
+	}
+	
+/*********Main (section + text)*********/
+	.Main{
+		height:100vh;
+	}
+
+	.Quick_Instruction{
+		text-align: center;
+		font-size: 48px;
+		color: #f13535;
+	}
+	.Main_h3 {
+		position: relative;
+		top: 150px;
+		text-align: center;
+		font-size: 130%;
+		color: #f13535;
+	}
+	.color_hyperlink{
+		color: #243447;
+	}
+/*********Main (background) split screen and adjustable on click*********/	
+	
+	.split_left {
+	  left: 0;
+	  background-color: #141d26;
+	  height: 130vh;
+	  width: 50%;
+	  position: absolute;
+	  z-index: -2;
+	  top: 0;
+	  overflow-x: hidden;
+	  padding-top: 20px;
+	}
+
+	.split_right {
+	  background-color: white;
+	  right: 0;
+	  height: 130vh;
+	  width: 50%;
+	  position: absolute;
+	  z-index: -2;
+	  top: 0;
+	  overflow-x: hidden;
+	  padding-top: 20px;
+	}
+	
+	.right_click{
+	  right: 0;
+	  height: 130vh;
+	  width: 50%;
+	  position: absolute;
+	  z-index: -2;
+	  top: 0;
+	  overflow-x: hidden;
+	  padding-top: 20px;
+	  animation: right_background 0.8s linear 2s both;
+
+	}
+
+	@keyframes right_background {
+	  0%   {background-color:#141d26; left:0%; top:0px;}
+	  25%  {background-color:#141d26; left:20%; top:0px;}
+	  50%  {background-color:#141d26; left:30%; top:0px;}
+	  75%  {background-color:#141d26; left:40%; top:0px;}
+	  100% {background-color:#141d26; left:50%; top:0px;}
+	}
+	
+
+/*********Main (Form): Align input buttons to text (class Quick_Instruction) side by side*********/
+
+	.form {
+		width:100%;
+		display: table;
+	}
+	.shift_input_file{
+		padding-left:10%;
+		padding-top:5%;
+		display: table-cell;
+	}
+
+	.shift_input_submit{
+		padding-left:12%;
+		display: table-cell;
+	}
+
+
+/*********Main (Form): Give file button a design that also changes text to file selected*********/
+	.SB_Input_File {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -2;
+		display: block;
+		margin:auto;
+	}
+	.SB_Input_File + label {
+		color: white;
+		background-color: #f13535;
+		max-width: 70%;
+		font-size: 27px;
+		font-weight: 700;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		cursor: pointer;
+		overflow: hidden;
+		padding: 40px 80px;
+
+	}
+	.SB_Input_File + label svg {
+		width: 2em;
+		height: 2em;
+		vertical-align: middle;
+		fill: white;
+		margin-top: -0.25em;
+		margin-right: 0.25em;
+	}
+	.SB_Input_File:focus + label,
+	.SB_Input_File.has-focus + label,
+	.SB_Input_File + label:hover {
+		background-color: #952020;
+	}
+		
+	.SB_Input_File + label span {
+		width: 200px;
+		min-height: 2em;
+		display: inline-block;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		vertical-align: top;
+		text-align: center;
+	}
+	
+/*********Main (Form): Give submit button a design*********/
+	.SB_Input_Submit{
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -2;
+		display: block;
+		margin:auto;
+	}
+	.SB_Input_Submit + label {
+		color: white;
+		background-color: #f13535;
+		max-width: 70%;
+		font-size: 26px;
+		font-weight: 700;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		cursor: pointer;
+		overflow: hidden;
+		padding: 40px 80px;
+	}
+	.SB_Input_Submit:focus + label,
+	.SB_Input_Submit.has-focus + label,
+	.SB_Input_Submit + label:hover {
+		background-color: #952020;
+	}
+	.SB_Input_Submit + label span {
+		width: 280px;
+		text-align: center;
+		min-height: 2em;
+		display: inline-block;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		vertical-align: top;
+	}
+
+/*********Understanding_S&B_Results section*********/
+	.Understanding_SB_Results{
+		background-color: #f13535;
+		height:100vh;
+	}
+	.CSSgal img {
+		margin-top:10%;
+	}
+/*********Publications section*********/
+	.Publications{
+			background-color: white;
+			height:150vh;
+			z-index:1;
+		}
+	.Publications_Title{
+		font-size: 300%;
+		text-align:center;
+		padding-top: 48px;
+		padding-left: 50px;
+		padding-bottom: 20px;
+		font-family: Franklin Gothic Medium;
+		color: #f13535;
+	}
+	.SB_Notice{
+		text-align:center;
+		color: #f13535;
+		font-size: 30px;
+	}
+	
+	.hover_article_link {
+	  margin-top: 1%;
+	  margin-left:10%;
+	  padding: 5px 10px;
+	  transition: 0.4s;
+	  border: solid black;
+	  width:80vw;
+	  opacity:60%;
+	  color:black;
+	}
+	
+	.hover_article_link:hover {
+	border-top-left-radius:10px;
+	border-color: red;
+	border-left: 10px solid blue;
+	border-bottom-left-radius:10px;
+	opacity:100%;
+	}
+	
+	.hover_talk_link {
+	  margin-top: 1%;
+	  margin-left:10%;
+	  padding: 5px 10px;
+	  transition: 0.4s;
+	  border: solid black;
+	  width:80vw;
+	  opacity:60%;
+	}
+	
+	.hover_talk_link:hover {
+	border-top-right-radius:10px;
+	border-color: blue;
+	border-right: 10px solid red;
+	border-bottom-right-radius:10px;
+	opacity:100%;
+	}
+	
+	.doi_link:link { text-decoration: none; }
+	.doi_link:visited { text-decoration: none; }
+	.doi_link:hover { text-decoration: none; }
+	.doi_link:active { text-decoration: none; }
+
+/*********Contact*********/
+	.Contact{
+			background-color: #243447;
+			height:135vh;
+		}
+	.Contact_Title{
+		font-size: 300%;
+		text-align:center;
+		padding-top: 48px;
+		padding-left: 50px;
+		padding-bottom: 20px;
+		font-family: Franklin Gothic Medium;
+		color: white;
+	}
+
+
+/*********Contact section (Bio Cards)*********/
+	.card-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		max-width: 100%;
+		margin: 0 auto;
+		padding-left: 5%;
+	}
+
+	.card {
+		width: 300px;
+		height: 51vh;
+		margin: 12px;
+		background-color: white;
+		padding: 10px;
+	}
+	
+	.Card_Names{
+		text-align:center;
+		font-weight:bold;
+		color: #141d26;
+		padding-top:5px;
+	}
+	.Card_Image{
+		display: block;
+		margin-left: auto;
+		margin-right: auto; 
+		padding-top: 10px;
+		width: 268px;
+		height: 300px;
+	}
+	.Card_Icons{
+		display: grid;
+		grid-template-columns: auto auto auto;
+		padding-top:9px;
+		padding-left:10px;
+	}
+	.Card_Icons_Two{
+		display: grid;
+		grid-template-columns: auto auto;
+		padding-top:9px;
+		padding-left:15%;
+	}
+	.Card_Icons_One{
+		display: grid;
+		grid-template-columns: auto;
+		padding-top:9px;
+		padding-left:35%;
+	}
+/*********Contact section (Bio Cards: Contact icons)*********/
+
+	.Contact_a {
+	  position: relative;
+	  width:50px;
+	  height:50px;
+	  display:block;
+	  text-align:center;
+	  margin:0 19px;
+	  border-radius: 100%;
+	  padding: 6px;
+	  box-sizing: border-box;
+	  text-decoration:none;
+	  transition: 0.6s;
+	}
+
+	.Contact_a:hover {
+	  box-shadow: 0px 0px 10px 5px #f13535;
+	}
+
+	.Contact_a .fab {
+	  height:100%;
+	  display:block;
+	  border-radius: 100%;
+	  line-height: 40px;
+	  font-size:30px;
+	  color: #262626;
+	}
+	
+	.Contact_a .fab:hover {
+	  color:red;
+	}
+
+/*********Grenoble Affiliation Section*********/
+	.Grenoble_Affiliation{
+			height:9vh;
+		}
+	.Logo_Row{
+		display: grid;
+		grid-template-columns: auto auto auto;
+		padding-left:28%;
+	}
+	.Grenoble_Logo{
+		width: 85px;
+		height: 50px;
+	}
+	.LIG_Logo{
+		width:73px;
+		height:50px;
+	}
+	.SIGMA_Logo{
+		width:300px;
+		height:50px;
+	}
