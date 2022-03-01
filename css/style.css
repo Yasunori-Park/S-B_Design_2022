@@ -392,7 +392,7 @@
 
 	.card {
 		width: 300px;
-		height: 51vh;
+		height: 420px;
 		margin: 12px;
 		background-color: white;
 		padding: 10px;
@@ -422,13 +422,13 @@
 		display: grid;
 		grid-template-columns: auto auto;
 		padding-top:9px;
-		padding-left:15%;
+		padding-left:30px;
 	}
 	.Card_Icons_One{
 		display: grid;
 		grid-template-columns: auto;
 		padding-top:9px;
-		padding-left:35%;
+		padding-left:105px;
 	}
 /*********Contact section (Bio Cards: Contact icons)*********/
 
@@ -450,7 +450,8 @@
 	  box-shadow: 0px 0px 10px 5px #f13535;
 	}
 
-	.Contact_a .fab {
+	.Contact_a .fab,
+	.Contact_a .fa	{
 	  height:100%;
 	  display:block;
 	  border-radius: 100%;
@@ -458,6 +459,7 @@
 	  font-size:30px;
 	  color: #262626;
 	}
+	
 	
 	.Contact_a .fab:hover {
 	  color:red;
@@ -469,18 +471,25 @@
 		}
 	.Logo_Row{
 		display: grid;
-		grid-template-columns: auto auto auto;
-		padding-left:28%;
+		grid-template-columns: auto auto auto auto;
+		padding-left:150px;
 	}
 	.Grenoble_Logo{
 		width: 85px;
 		height: 50px;
+		padding-top:30px;
 	}
 	.LIG_Logo{
 		width:73px;
 		height:50px;
+		padding-top:24px;
 	}
 	.SIGMA_Logo{
 		width:300px;
 		height:50px;
+		padding-top:25px;
+	}
+	.USYD_Logo{
+		width:180px;
+		height:90px;
 	}
