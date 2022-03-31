@@ -31,6 +31,7 @@
 		height:40px;
 		width:400px;
 		display:none;
+		z-index: 4;
 	}
 	#progress_container {
 		width: 300px; 
@@ -39,13 +40,14 @@
 		background-color:#EBEBEB;
 		display: block; 
 		margin:5px 0px -15px 0px;
+		z-index: 4;
 	}
 	#progress_bar {
 		position: relative; 
 		height: 30px; 
 		background-color: #F3631C; 
 		width: 0%; 
-		z-index:10; 
+		z-index:4; 
 	}
 	#progress_completed {
 		font-size:16px; 
@@ -53,6 +55,7 @@
 		line-height:30px; 
 		padding-left:4px; 
 		color:#FFFFFF;
+		z-index: 4;
 	}
 
  /*********Navigation_Bar*********/
