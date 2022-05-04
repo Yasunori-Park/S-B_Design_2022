@@ -36,8 +36,8 @@
 	#progress_container {
 		width: 300px; 
 		height: 30px; 
-		border: 1px solid #CCCCCC; 
-		background-color:#EBEBEB;
+		border: 1px solid #000FFF; 
+		background-color:#CCCFFF;
 		display: block; 
 		margin:5px 0px -15px 0px;
 		z-index: 4;
@@ -45,7 +45,7 @@
 	#progress_bar {
 		position: relative; 
 		height: 30px; 
-		background-color: #F3631C; 
+		background-color: #FFCCCC; 
 		width: 0%; 
 		z-index:4; 
 	}
@@ -54,7 +54,7 @@
 		z-index:40; 
 		line-height:30px; 
 		padding-left:4px; 
-		color:#FFFFFF;
+		color:#000000;
 		z-index: 4;
 	}
 
@@ -496,3 +496,4 @@
 		width:180px;
 		height:90px;
 	}
+
